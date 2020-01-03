@@ -1,0 +1,6 @@
+@echo off
+For /F "tokens=1* delims==" %%A IN (cluster.properties) DO (
+    IF "%%A"=="KAFKAPATH" set KAFKAPATH=%%B
+)
+xcopy /s ..\PropertiesFiles\*.* %KAFKAPATH%\..\..\config
+PAUSE
