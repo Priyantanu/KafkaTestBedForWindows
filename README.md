@@ -6,8 +6,8 @@ Steps:
 1. Set cluster.properties file in "BatchFiles" folder         
    zookeeper=localhost:2181         
    bootstrap-server=localhost:9092       
-   topicname=kick          
-   groupname=kickgroup        
+   topicname=topicName          
+   groupname=topicGroup          
    KAFKAPATH=C:\kafka_2.12-2.3.0\bin\windows        
            
 2. Run script CopyServerProperties.bat file             
