@@ -1,9 +1,11 @@
 @echo off
+For /F "tokens=1* delims==" %%A IN (cluster.properties) DO (
+    IF "%%A"=="topicname" set topicname=%%B
+    IF "%%A"=="zookeeper" set zookeeper=%%B
+    IF "%%A"=="KAFKAPATH" set KAFKAPATH=%%B
+)
 cd %KAFKAPATH%
-set topicname=kick
-set zookeeper=localhost:2181
-set /p topicname=Enter topicname (default - %topicname%):
-set /p zookeeper=Enter zookeeper (default - %zookeeper%):
+TITLE TOPIC DESCRIBE %topicname%, %zookeeper%
 FOR /L %%A IN (1,1,200) DO (
   kafka-topics.bat --zookeeper %zookeeper% --describe --topic %topicname%
   pause

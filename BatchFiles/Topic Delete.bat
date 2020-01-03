@@ -1,10 +1,12 @@
 @echo off
-cd %KAFKAPATH%
+For /F "tokens=1* delims==" %%A IN (cluster.properties) DO (
+    IF "%%A"=="zookeeper" set zookeeper=%%B
+    IF "%%A"=="KAFKAPATH" set KAFKAPATH=%%B
+)
 set topicname=kick
-set zookeeper=localhost:2181
 set /p topicname=Enter topicname (default - %topicname%):
-set /p zookeeper=Enter zookeeper (default - %zookeeper%):
+TITLE DELETE TOPIC %topicname%
 FOR /L %%A IN (1,1,1) DO (
- kafka-topics.bat --zookeeper %zookeeper% --delete --topic %topicname%
+ %KAFKAPATH%\kafka-topics.bat --zookeeper %zookeeper% --delete --topic %topicname%
   pause
 )

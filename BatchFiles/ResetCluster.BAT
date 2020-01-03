@@ -1,5 +1,8 @@
 @echo off
+TITLE RESET CLUSTER
 For /F "tokens=1* delims==" %%A IN (cluster.properties) DO (
     IF "%%A"=="KAFKAPATH" set KAFKAPATH=%%B
 )
-START %KAFKAPATH%\zookeeper-server-start.bat %KAFKAPATH%\..\..\config\zookeeper.properties
+del /s /f /q cd %KAFKAPATH%\..\..\data\*.*
+cd %KAFKAPATH%\..\..\logs
+del *.*
