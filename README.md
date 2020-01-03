@@ -1,4 +1,4 @@
-# KafkaClusterForWindows
+# Kafka Cluster TestBed For Windows
 Scripts to Create Cluster on Local Windows Machine       
 you can automate the process of creating parallel data pipelines(displaying data on command-prompt) aka consumers in a consumerGroup just by launching "Create Subscriber" again and again, without any hassle. You can also launch as many producers(console) as you need.    
            
