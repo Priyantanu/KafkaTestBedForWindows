@@ -12,6 +12,7 @@ For /F "tokens=1* delims==" %%A IN (cluster.properties) DO (
     IF "%%A"=="KAFKAPATH" set KAFKAPATH=%%B
 )
 TITLE DESCRIBE GROUP: %groupname%, %bootstrap-server%
+set /p groupname=Enter groupname (default - %groupname%):
 cd %KAFKAPATH%
 FOR /L %%A IN (1,1,200) DO (
   kafka-consumer-groups.bat --bootstrap-server %bootstrap-server% --describe --group %GroupName%

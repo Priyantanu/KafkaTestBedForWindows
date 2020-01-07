@@ -6,6 +6,8 @@ For /F "tokens=1* delims==" %%A IN (cluster.properties) DO (
     IF "%%A"=="groupname" set groupname=%%B
     IF "%%A"=="KAFKAPATH" set KAFKAPATH=%%B
 )
-TITLE CONSUMER: %topicname%, %groupname%, %bootstrap-server%, 
+TITLE CONSUMER: %topicname%, %groupname%, %bootstrap-server% 
+set /p topicname=Enter topicname (default - %topicname%):
+set /p groupname=Enter groupname (default - %groupname%):
 set /p frombeginning=Enter frombeginning [y/n](default - %frombeginning%):
 if %frombeginning%==y (%KAFKAPATH%\kafka-console-consumer.bat  --bootstrap-server %bootstrap-server% --topic %topicname% --group %groupname% --from-beginning) else (%KAFKAPATH%\kafka-console-consumer.bat  --bootstrap-server %bootstrap-server% --topic %topicname% --group %groupname%)

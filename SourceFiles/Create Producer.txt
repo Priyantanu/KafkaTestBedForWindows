@@ -5,4 +5,5 @@ For /F "tokens=1* delims==" %%A IN (cluster.properties) DO (
     IF "%%A"=="KAFKAPATH" set KAFKAPATH=%%B
 )
 TITLE PRODUCER: %topicname%, %bootstrap-server%
+set /p topicname=Enter topicname (default - %topicname%):
 %KAFKAPATH%\kafka-console-producer.bat --broker-list  %bootstrap-server% --topic %topicname%

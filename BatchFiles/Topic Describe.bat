@@ -6,6 +6,7 @@ For /F "tokens=1* delims==" %%A IN (cluster.properties) DO (
 )
 cd %KAFKAPATH%
 TITLE TOPIC DESCRIBE %topicname%, %zookeeper%
+set /p topicname=Enter topicname (default - %topicname%):
 FOR /L %%A IN (1,1,200) DO (
   kafka-topics.bat --zookeeper %zookeeper% --describe --topic %topicname%
   pause

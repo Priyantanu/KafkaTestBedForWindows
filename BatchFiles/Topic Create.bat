@@ -2,9 +2,10 @@
 For /F "tokens=1* delims==" %%A IN (cluster.properties) DO (
     IF "%%A"=="zookeeper" set zookeeper=%%B
     IF "%%A"=="KAFKAPATH" set KAFKAPATH=%%B
+    IF "%%A"=="topicname" set topicname=%%B
 )
 TITLE TOPIC CREATE
-set topicname=kick
+set topicname=%topicname%
 set partitions=5
 set replication-factor=1
 set /p topicname=Enter topicname (default - %topicname%):
