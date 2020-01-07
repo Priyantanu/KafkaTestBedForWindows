@@ -1,4 +1,4 @@
-# KafkaClusterForWindows
+# KafkaTestBedForWindows
 Scripts to Create Cluster on Local Windows Machine       
            
 Steps:       
